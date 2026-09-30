@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Mời Đám Cưới - Thanh Tùng & Thu Mận</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Falling Petals Canvas Effect -->
+    <canvas id="petalCanvas"></canvas>
+
+    <!-- Background Music Audio -->
+    <audio id="bgMusic" loop preload="auto">
+        <source
+            src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-piano-116039.mp3"
+            type="audio/mpeg">
+    </audio>
+
+    <!-- Music Control Button -->
+    <button class="music-btn" id="musicToggle" aria-label="Bật/Tắt Nhạc">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- Envelope Opening Cover Screen -->
+    <div class="envelope-overlay" id="envelopeScreen">
+        <div class="envelope-card">
+            <div class="stamp"><i class="fas fa-heart"></i></div>
+            <p class="env-subtitle">THIỆP MỜI BÁO HỶ</p>
+            <h1 class="env-names">Thanh Tùng & Thu Mận</h1>
+            <p class="env-date"><i class="far fa-calendar-alt"></i> 15 . 10 . 2026</p>
+            <div class="env-divider">✦</div>
+            <p class="env-text">Trân trọng kính mời quý khách đến tham dự buổi lễ thành hôn của chúng tôi</p>
+            <button class="open-invitation-btn" id="openBtn">
+                <span>Khám Phá Thiệp Mời</span> <i class="fas fa-envelope-open-text"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content Container (Hidden until envelope opened) -->
+    <div class="main-wrapper hidden-content" id="mainContent">
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-logo">T & M</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Trang Chủ</a></li>
+                <li><a href="#couple">Cặp Đôi</a></li>
+                <li><a href="#details">Thời Gian</a></li>
+                <li><a href="#gallery">Album Ảnh</a></li>
+                <li><a href="#wishes">Lời Chúc</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-bg-overlay"></div>
+            <div class="hero-content">
+                <span class="hero-badge">SAVE OUR DATE</span>
+                <h1 class="hero-title">Thanh Tùng <span class="amp">&amp;</span> Thu Mận</h1>
+                <p class="hero-subtitle">"Hành trình vạn dặm bắt đầu từ một cái nắm tay..."</p>
+
+                <div class="hero-main-img-container">
+                    <div class="img-frame">
+                        <img src="images/main.jpg" alt="Thanh Tùng & Thu Mận - Main Image" class="hero-main-img">
+                    </div>
+                </div>
+
+                <div class="hero-date-box">
+                    <div class="date-item">
+                        <span class="date-num">15</span>
+                        <span class="date-label">THÁNG 10</span>
+                    </div>
+                    <div class="date-divider"></div>
+                    <div class="date-item">
+                        <span class="date-num">2026</span>
+                        <span class="date-label">NĂM</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Couple Intro Section -->
+        <section id="couple" class="couple-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-header">CHÚ RỂ & CÔ DÂU</span>
+                    <h2 class="section-title">Chú Rể & Cô Dâu</h2>
+                    <div class="title-divider"><span>❦</span></div>
+                </div>
+                <div class="couple-grid">
+                    <div class="couple-card groom">
+                        <div class="couple-img-wrapper">
+                            <img src="images/tung.jpg" alt="Chú Rể Thanh Tùng">
+                        </div>
+                        <h3>Thanh Tùng</h3>
+                        <p class="couple-role">Chú Rể</p>
+                        <p class="couple-desc">"Anh tìm thấy ở em tình yêu, sự sẻ chia và một mái ấm bình yên cho cả
+                            cuộc đời."</p>
+                    </div>
+                    <div class="couple-heart-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="couple-card bride">
+                        <div class="couple-img-wrapper">
+                            <img src="images/man.jpg" alt="Cô Dâu Thu Mận">
+                        </div>
+                        <h3>Thu Mận</h3>
+                        <p class="couple-role">Cô Dâu</p>
+                        <p class="couple-desc">"Hạnh phúc không phải là điểm đến, mà là chặng đường chúng ta cùng nhau
+                            đi qua."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="countdown-section">
+            <div class="container">
+                <h3 class="countdown-title">CÙNG ĐẾM NGƯỢC ĐẾN NGÀY TRỌNG ĐẠI</h3>
+                <div class="timer-grid" id="timer">
+                    <div class="timer-box">
+                        <span id="days">00</span>
+                        <p>NGÀY</p>
+                    </div>
+                    <div class="timer-box">
+                        <span id="hours">00</span>
+                        <p>GIỜ</p>
+                    </div>
+                    <div class="timer-box">
+                        <span id="minutes">00</span>
+                        <p>PHÚT</p>
+                    </div>
+                    <div class="timer-box">
+                        <span id="seconds">00</span>
+                        <p>GIÂY</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wedding Details Section -->
+        <section id="details" class="details-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-header">THÔNG TIN LỄ CƯỚI</span>
+                    <h2 class="section-title">Thời Gian & Địa Điểm</h2>
+                    <div class="title-divider"><span>❦</span></div>
+                </div>
+
+                <div class="details-card-wrapper">
+                    <div class="event-card">
+                        <div class="event-icon"><i class="fas fa-glass-cheers"></i></div>
+                        <h3 class="event-name">LỄ THÀNH HÔN</h3>
+                        <div class="event-time">
+                            <p class="time-main"><i class="far fa-clock"></i> <strong>10:00 AM</strong></p>
+                            <p class="date-solar">Thứ Năm, <strong>15/10/2026</strong></p>
+                            <p class="date-lunar">(Tức ngày <strong>06/09 năm Bính Ngọ</strong>)</p>
+                        </div>
+                        <div class="event-location">
+                            <p class="loc-title"><i class="fas fa-map-marker-alt"></i> <strong>TỔ CHỨC TẠI GIA ĐÌNH NHÀ
+                                    TRAI</strong></p>
+                            <p class="loc-desc">Rất hân hạnh được đón tiếp quý quan khách và bạn bè thân thiết đến chung
+                                vui cùng gia đình chúng tôi!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Carousel Section -->
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-header">ALBUM HÌNH ẢNH</span>
+                    <h2 class="section-title">Khoảnh Khắc Yêu Thương</h2>
+                    <div class="title-divider"><span>❦</span></div>
+                    <p class="section-intro">Cùng ngắm nhìn những khung hình hạnh phúc của Thanh Tùng & Thu Mận</p>
+                </div>
+
+                <!-- Custom Carousel -->
+                <div class="carousel-container">
+                    <button class="carousel-prev" id="prevBtn" aria-label="Ảnh trước"><i
+                            class="fas fa-chevron-left"></i></button>
+
+                    <div class="carousel-track-wrapper">
+                        <div class="carousel-track" id="carouselTrack">
+                            <!-- Dynamically loaded or hardcoded images -->
+                            <div class="carousel-slide active" onclick="openLightbox(0)">
+                                <img src="images/1790772972006_7180721539971152172_7180721539971152172_30fa94c87a6ea69e926d674694ee48cd.jpg"
+                                    alt="Album 1">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(1)">
+                                <img src="images/1790772972053_7180721539971152172_7180721539971152172_e54d6aa3f13992eaa5ac2c4770112bc7.jpg"
+                                    alt="Album 2">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(2)">
+                                <img src="images/1790772972071_7180721539971152172_7180721539971152172_0ec90219ae3026810fbcdf06a41a9930.jpg"
+                                    alt="Album 3">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(3)">
+                                <img src="images/1790772972088_7180721539971152172_7180721539971152172_eb272372afe3a0bc764af9effade09cb.jpg"
+                                    alt="Album 4">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(4)">
+                                <img src="images/1790772972106_7180721539971152172_7180721539971152172_00ce2deed18bf672d36ce9163af8733b.jpg"
+                                    alt="Album 5">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(5)">
+                                <img src="images/1790772972123_7180721539971152172_7180721539971152172_3ef596161e1a172bde4942159c72b3fe.jpg"
+                                    alt="Album 6">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(6)">
+                                <img src="images/1790772972141_7180721539971152172_7180721539971152172_d7aa709d0fdd94ba8e0cb9a008894aa9.jpg"
+                                    alt="Album 7">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(7)">
+                                <img src="images/1790772972158_7180721539971152172_7180721539971152172_42328221bea2e548e9baaf9e8e091189.jpg"
+                                    alt="Album 8">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(8)">
+                                <img src="images/1790772972175_7180721539971152172_7180721539971152172_b6b07a1f0300fe355089d3dbf3c531b0.jpg"
+                                    alt="Album 9">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(9)">
+                                <img src="images/1790772972192_7180721539971152172_7180721539971152172_f86b7230b05ad3a6fa978fb446e00bd8.jpg"
+                                    alt="Album 10">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(10)">
+                                <img src="images/1790772972209_7180721539971152172_7180721539971152172_887524f32e580df09cf65a6784645fdd.jpg"
+                                    alt="Album 11">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(11)">
+                                <img src="images/1790772972227_7180721539971152172_7180721539971152172_0c65c0c26577bf8f5ef2b46384a37e8b.jpg"
+                                    alt="Album 12">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-next" id="nextBtn" aria-label="Ảnh tiếp"><i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Carousel Thumbnails / Indicators -->
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </section>
+
+        <!-- Guest Wishes Section -->
+        <section id="wishes" class="wishes-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-header">LỜI CHÚC PHÚC</span>
+                    <h2 class="section-title">Sổ Lưu Bút Đám Cưới</h2>
+                    <div class="title-divider"><span>❦</span></div>
+                    <p class="section-intro">Hãy gửi những lời chúc tốt đẹp nhất tới cô dâu & chú rể nhé!</p>
+                </div>
+
+                <div class="wishes-wrapper">
+                    <!-- Wish Input Form -->
+                    <form id="wishForm" class="wish-form">
+                        <div class="form-group">
+                            <input type="text" id="wishAuthor" required placeholder="Tên của bạn...">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="wishContent" rows="3" required
+                                placeholder="Viết lời chúc mừng tới Thanh Tùng & Thu Mận..."></textarea>
+                        </div>
+                        <button type="submit" class="wish-submit-btn"><i class="fas fa-heart"></i> Gửi Lời Chúc</button>
+                    </form>
+
+                    <!-- Wishes List Wall -->
+                    <div class="wishes-wall" id="wishesWall">
+                        <!-- Initial predefined wishes -->
+                        <div class="wish-card">
+                            <div class="wish-header">
+                                <strong>Gia Đình Hai Bên</strong>
+                                <span class="wish-date">Hôm nay</span>
+                            </div>
+                            <p class="wish-text">"Chúc hai con trăm năm hạnh phúc, đầu bạc răng long, luôn yêu thương và
+                                nhường nhịn lẫn nhau!"</p>
+                        </div>
+                        <div class="wish-card">
+                            <div class="wish-header">
+                                <strong>Bạn Thân Chú Rể</strong>
+                                <span class="wish-date">Hôm nay</span>
+                            </div>
+                            <p class="wish-text">"Chúc mừng Thanh Tùng đã rước được cô dâu xinh đẹp Thu Mận về dinh!
+                                Chúc hai bạn cuộc sống viên mãn!"</p>
+                        </div>
+                        <div class="wish-card">
+                            <div class="wish-header">
+                                <strong>Hội Bạn Thân Cô Dâu</strong>
+                                <span class="wish-date">Hôm nay</span>
+                            </div>
+                            <p class="wish-text">"Chúc mừng Thu Mận – cô gái xinh đẹp nhất hôm nay! Chúc Thanh Tùng &
+                                Thu Mận luôn nắm chặt tay nhau, mãi mãi hạnh phúc ngọt ngào!"</p>
+                        </div>
+                        <div class="wish-card">
+                            <div class="wish-header">
+                                <strong>Anh Chị Đồng Nghiệp</strong>
+                                <span class="wish-date">Hôm nay</span>
+                            </div>
+                            <p class="wish-text">"Chúc mừng ngày vui của Thanh Tùng và Thu Mận! Chúc hai em có một hành
+                                trình hôn nhân đong đầy tiếng cười, vẹn toàn và may mắn!"</p>
+                        </div>
+                        <div class="wish-card">
+                            <div class="wish-header">
+                                <strong>Nhóm Bạn Cấp 3</strong>
+                                <span class="wish-date">Hôm nay</span>
+                            </div>
+                            <p class="wish-text">"Cuối cùng ngày đặc biệt này cũng tới! Chúc hai bạn trăm năm tình mãn,
+                                cùng nhau khởi đầu một chương mới thật rực rỡ và đầm ấm!"</p>
+                        </div>
+                        <div class="wish-card">
+                            <div class="wish-header">
+                                <strong>Bạn Bè Thân Thiết</strong>
+                                <span class="wish-date">Hôm nay</span>
+                            </div>
+                            <p class="wish-text">"Chúc hai bạn sớm có thêm thành viên nhỏ xinh xắn! Chúc mái ấm của Tùng
+                                & Mận luôn ngập tràn tiếng cười niềm vui mỗi ngày!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <h3 class="footer-names">Thanh Tùng &amp; Thu Mận</h3>
+                <p class="footer-thank">Cảm ơn bạn đã ghé thăm trang thiệp cưới của chúng tôi!</p>
+                <p class="footer-copyright">© 2026 Wedding Invitation - Designed with ❤️</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Lightbox Modal for Photo Gallery -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <button class="lightbox-prev" onclick="changeLightboxSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="Zoomed Photo">
+        </div>
+        <button class="lightbox-next" onclick="changeLightboxSlide(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
