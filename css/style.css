@@ -140,10 +140,27 @@ body {
 
 .env-names {
     font-family: var(--font-script);
-    font-size: 3rem;
+    font-size: 2.8rem;
     color: var(--accent-red);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.15;
+}
+
+.env-names .name {
+    display: block;
+    white-space: nowrap;
+}
+
+.env-names .amp {
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--primary-gold);
+    font-size: 1.8rem;
+    margin: 2px 0;
 }
 
 .env-date {
@@ -1080,4 +1097,5 @@ body {
     .qr-grid { grid-template-columns: 1fr; }
     .hero-main-img { height: 360px; }
     .env-names { font-size: 2.3rem; }
+    .env-names .amp { font-size: 1.5rem; margin: 1px 0; }
 }
