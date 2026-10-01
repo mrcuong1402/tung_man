@@ -591,7 +591,19 @@ body {
 .loc-title {
     font-size: 1.1rem;
     color: var(--accent-red);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+}
+
+.loc-address {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.loc-address i {
+    color: var(--primary-gold);
+    margin-right: 5px;
 }
 
 .loc-desc {
