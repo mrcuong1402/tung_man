@@ -216,13 +216,14 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(10px);
     z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px 5%;
+    padding: 16px 5%;
+    min-height: 60px;
     border-bottom: 1px solid rgba(197, 155, 39, 0.2);
 }
 
@@ -230,9 +231,11 @@ body {
     position: absolute;
     left: 5%;
     font-family: var(--font-script);
-    font-size: 1.8rem;
+    font-size: 1.7rem;
+    line-height: 1.1;
     color: var(--primary-gold);
     font-weight: bold;
+    padding: 2px 0;
 }
 
 .nav-links {
@@ -287,18 +290,19 @@ body {
 
 .hero-title {
     font-family: var(--font-script);
-    font-size: 4.5rem;
+    font-size: clamp(2rem, 9.5vw, 4.5rem);
     color: var(--accent-red);
-    line-height: 1.1;
+    line-height: 1.25;
     margin-bottom: 15px;
     font-weight: normal;
+    white-space: nowrap;
 }
 
 .hero-title .amp {
     font-family: var(--font-heading);
     font-style: italic;
     color: var(--primary-gold);
-    font-size: 3rem;
+    font-size: 0.7em;
 }
 
 .hero-subtitle {
@@ -533,8 +537,11 @@ body {
    DETAILS SECTION
    ========================================== */
 .details-card-wrapper {
-    max-width: 650px;
+    max-width: 1000px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
 }
 
 .event-card {
@@ -1040,35 +1047,88 @@ body {
 .qr-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .qr-card {
-    background: var(--bg-cream);
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.qr-card h4 {
-    font-family: var(--font-heading);
-    color: var(--primary-gold);
-    margin-bottom: 10px;
-}
-
-.qr-placeholder {
-    margin-top: 15px;
     background: #fff;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(197, 155, 39, 0.2);
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.qr-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(197, 155, 39, 0.22);
+}
+
+.qr-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    background: rgba(197, 155, 39, 0.15);
     color: var(--primary-gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.qr-badge.bride-badge {
+    background: rgba(139, 38, 62, 0.1);
+    color: var(--accent-red);
+}
+
+.qr-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--accent-red);
+    margin-bottom: 4px;
+}
+
+.qr-name {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 18px;
+}
+
+.qr-img-box {
+    margin: 0 auto 15px;
+    padding: 12px;
+    background: #fff;
+    border-radius: 16px;
+    display: inline-block;
+    border: 2px dashed rgba(197, 155, 39, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.qr-img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.qr-img:hover {
+    transform: scale(1.05);
 }
 
 .qr-tip {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
-    margin-top: 8px;
+}
+
+.qr-tip i {
+    color: var(--primary-gold);
+    margin-right: 5px;
 }
 
 /* Footer */
@@ -1100,13 +1160,35 @@ body {
    RESPONSIVE DESIGN
    ========================================== */
 @media (max-width: 768px) {
+    .navbar {
+        padding: 12px 20px;
+        min-height: 56px;
+        justify-content: center;
+    }
+    .nav-logo {
+        position: relative;
+        left: auto;
+        font-size: 1.6rem;
+        line-height: 1.2;
+        padding: 4px 0;
+    }
     .nav-links { display: none; }
-    .hero-title { font-size: 3.2rem; }
+    .hero-content { padding: 30px 10px; }
+    .hero-title {
+        font-size: clamp(1.4rem, 7.8vw, 3.2rem);
+        white-space: nowrap;
+    }
+    .footer-names {
+        font-size: clamp(1.3rem, 7vw, 2.5rem);
+        white-space: nowrap;
+    }
     .couple-grid { grid-template-columns: 1fr; gap: 20px; }
     .couple-heart-icon { display: none; }
     .carousel-slide { height: 420px; padding: 10px; }
     .carousel-slide img { max-height: 400px; }
-    .qr-grid { grid-template-columns: 1fr; }
+    .details-card-wrapper { grid-template-columns: 1fr; gap: 25px; }
+    .qr-grid { grid-template-columns: 1fr; gap: 25px; }
+    .qr-img { width: 180px; height: 180px; }
     .hero-main-img { height: 360px; }
     .env-names { font-size: 2.3rem; }
     .env-names .amp { font-size: 1.5rem; margin: 1px 0; }

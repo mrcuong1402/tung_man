@@ -152,6 +152,13 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxModal.classList.add('active');
     };
 
+    window.openQrLightbox = function(src) {
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+        lightboxImg.src = src;
+        lightboxModal.classList.add('active');
+    };
+
     window.closeLightbox = function() {
         document.getElementById('lightboxModal').classList.remove('active');
     };

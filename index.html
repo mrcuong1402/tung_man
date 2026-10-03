@@ -45,9 +45,8 @@
 
     <!-- Background Music Audio -->
     <audio id="bgMusic" loop preload="auto">
-        <source
-            src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-piano-116039.mp3"
-            type="audio/mpeg">
+        <source src="audio/ido.mp3" type="audio/mpeg">
+        <source src="https://archive.org/download/i-do-911/I%20Do%20-%20911.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Music Control Button -->
@@ -85,6 +84,7 @@
                 <li><a href="#couple">Cặp Đôi</a></li>
                 <li><a href="#details">Thời Gian</a></li>
                 <li><a href="#gallery">Album Ảnh</a></li>
+                <li><a href="#gift">Mừng Cưới</a></li>
                 <li><a href="#wishes">Lời Chúc</a></li>
             </ul>
         </nav>
@@ -186,6 +186,7 @@
                 </div>
 
                 <div class="details-card-wrapper">
+                    <!-- Groom's House -->
                     <div class="event-card">
                         <div class="event-icon"><i class="fas fa-glass-cheers"></i></div>
                         <h3 class="event-name">LỄ THÀNH HÔN</h3>
@@ -195,18 +196,37 @@
                             <p class="date-lunar">(Tức ngày <strong>06/09 năm Bính Ngọ</strong>)</p>
                         </div>
                         <div class="event-location">
-                            <p class="loc-title"><i class="fas fa-map-marker-alt"></i> <strong>TỔ CHỨC TẠI GIA ĐÌNH NHÀ
-                                    TRAI</strong></p>
-                            <p class="loc-address"><i class="fas fa-home"></i> <strong>Địa chỉ:</strong> SN 266 - Cẩm
-                                Trướng - Định Hoà - Thanh Hoá</p>
+                            <p class="loc-title"><i class="fas fa-map-marker-alt"></i> <strong>TỔ CHỨC TẠI GIA ĐÌNH NHÀ TRAI</strong></p>
+                            <p class="loc-address"><i class="fas fa-home"></i> <strong>Địa chỉ:</strong> SN 266 - Cẩm Trướng - Định Hoà - Thanh Hoá</p>
                             <br>
-                            <p class="loc-desc">Rất hân hạnh được đón tiếp quý quan khách và bạn bè thân thiết đến chung
-                                vui cùng gia đình chúng tôi!</p>
+                            <p class="loc-desc">Rất hân hạnh được đón tiếp quý quan khách và bạn bè thân thiết đến chung vui cùng gia đình nhà trai!</p>
                         </div>
                         <div class="event-actions">
                             <a href="https://maps.app.goo.gl/EEheouH34BYFjFAC7" target="_blank"
                                 rel="noopener noreferrer" class="btn-action primary-btn">
-                                <i class="fas fa-map-marked-alt"></i> Chỉ Đường Google Maps
+                                <i class="fas fa-map-marked-alt"></i> Bản Đồ Nhà Trai
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Bride's House -->
+                    <div class="event-card">
+                        <div class="event-icon"><i class="fas fa-heart"></i></div>
+                        <h3 class="event-name">LỄ VU QUY</h3>
+                        <div class="event-time">
+                            <p class="date-solar"><i class="far fa-calendar-alt"></i> Thứ Năm, <strong>15/10/2026</strong></p>
+                            <p class="date-lunar">(Tức ngày <strong>06/09 năm Bính Ngọ</strong>)</p>
+                        </div>
+                        <div class="event-location">
+                            <p class="loc-title"><i class="fas fa-map-marker-alt"></i> <strong>TỔ CHỨC TẠI GIA ĐÌNH NHÀ GÁI</strong></p>
+                            <p class="loc-address"><i class="fas fa-home"></i> <strong>Địa chỉ:</strong> SN 54 - Minh Thịnh - Yên Thọ - Thanh Hoá</p>
+                            <br>
+                            <p class="loc-desc">Rất hân hạnh được đón tiếp quý quan khách và bạn bè thân thiết đến chung vui cùng gia đình nhà gái!</p>
+                        </div>
+                        <div class="event-actions">
+                            <a href="https://maps.app.goo.gl/P9KdHoRhDQk1T2hE9?g_st=iz" target="_blank"
+                                rel="noopener noreferrer" class="btn-action primary-btn">
+                                <i class="fas fa-map-marked-alt"></i> Bản Đồ Nhà Gái
                             </a>
                         </div>
                     </div>
@@ -289,6 +309,41 @@
 
                 <!-- Carousel Thumbnails / Indicators -->
                 <div class="carousel-dots" id="carouselDots"></div>
+        </section>
+
+        <!-- Gift & QR Section -->
+        <section id="gift" class="gift-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-header">HỘP MỪNG CƯỚI</span>
+                    <h2 class="section-title">Gửi Quà Mừng Hạnh Phúc</h2>
+                    <div class="title-divider"><span>❦</span></div>
+                    <p class="section-intro">Sự hiện diện của quý khách là niềm hạnh phúc lớn nhất của chúng tôi. Nếu không thể tham dự trực tiếp, quý khách có thể gửi quà mừng chúc phúc qua mã QR dưới đây:</p>
+                </div>
+
+                <div class="qr-grid">
+                    <!-- Groom QR -->
+                    <div class="qr-card">
+                        <div class="qr-badge">CHÚ RỂ</div>
+                        <h4 class="qr-title">Mừng Cưới Chú Rể</h4>
+                        <p class="qr-name"><strong>Thanh Tùng</strong></p>
+                        <div class="qr-img-box" onclick="openQrLightbox('images/qr_tung.png')" style="cursor: pointer;">
+                            <img src="images/qr_tung.png" alt="Mã QR Chú Rể Thanh Tùng" class="qr-img">
+                        </div>
+                        <p class="qr-tip"><i class="fas fa-qrcode"></i> Quét mã QR để mừng cưới Chú Rể (Nhấp để phóng to)</p>
+                    </div>
+
+                    <!-- Bride QR -->
+                    <div class="qr-card">
+                        <div class="qr-badge bride-badge">CÔ DÂU</div>
+                        <h4 class="qr-title">Mừng Cưới Cô Dâu</h4>
+                        <p class="qr-name"><strong>Thu Mận</strong></p>
+                        <div class="qr-img-box" onclick="openQrLightbox('images/qr_man.png')" style="cursor: pointer;">
+                            <img src="images/qr_man.png" alt="Mã QR Cô Dâu Thu Mận" class="qr-img">
+                        </div>
+                        <p class="qr-tip"><i class="fas fa-qrcode"></i> Quét mã QR để mừng cưới Cô Dâu (Nhấp để phóng to)</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -374,7 +429,7 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
-                <h3 class="footer-names">Thanh Tùng &amp; Thu Mận</h3>
+                <h3 class="footer-names">Thanh Tùng <span class="amp">&amp;</span> Thu Mận</h3>
                 <p class="footer-thank">Cảm ơn bạn đã ghé thăm trang thiệp cưới của chúng tôi!</p>
                 <p class="footer-copyright">© 2026 Wedding Invitation - Designed with ❤️</p>
             </div>
