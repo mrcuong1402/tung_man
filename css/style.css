@@ -537,10 +537,10 @@ body {
    DETAILS SECTION
    ========================================== */
 .details-card-wrapper {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
     gap: 30px;
 }
 
